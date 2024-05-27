@@ -99,9 +99,10 @@ Possible values for list-type are: `recents', `bookmarks', `projects',
          (icon-name (alist-get 'projects dashboard-heading-icons))
          (icon (nerd-icons-octicon icon-name :face 'dashboard-heading)))
     (if dashboard-display-icons-p
-        (insert (format "%-3s" icon)))
+        (insert (format "%-1s   " icon)))
     (widget-create 'item
                    :tag (format "%-30s" "Open project")
+                   ;; :tag (format "%-1s " "Open project")
                    :action (lambda (&rest _)
                              (call-interactively
                               (alist-get 'projects doom-dashboard-shortmenu-functions)))
@@ -122,7 +123,7 @@ Possible values for list-type are: `recents', `bookmarks', `projects',
          (icon-name (alist-get 'agenda dashboard-heading-icons))
          (icon (nerd-icons-octicon icon-name :face 'dashboard-heading)))
     (if dashboard-display-icons-p
-        (insert (format "%-3s" icon)))
+        (insert (format "%-1s   " icon)))
     (widget-create 'item
                    :tag (format "%-30s" "Open org-agenda")
                    :action (lambda (&rest _)
@@ -145,7 +146,7 @@ Possible values for list-type are: `recents', `bookmarks', `projects',
          (icon-name (alist-get 'bookmarks dashboard-heading-icons))
          (icon (nerd-icons-octicon icon-name :face 'dashboard-heading)))
     (if dashboard-display-icons-p
-        (insert (format "%-3s" icon)))
+        (insert (format "%-1s   " icon)))
     (widget-create 'item
                    :tag (format "%-30s" "Jump to bookmark")
                    :action (lambda (&rest _)
@@ -168,7 +169,7 @@ Possible values for list-type are: `recents', `bookmarks', `projects',
          (icon-name (alist-get 'recents dashboard-heading-icons))
          (icon (nerd-icons-octicon icon-name :face 'dashboard-heading)))
     (if dashboard-display-icons-p
-        (insert (format "%-3s" icon)))
+        (insert (format "%-1s   " icon)))
     (widget-create 'item
                    :tag (format "%-30s" "Recently opened files")
                    :action (lambda (&rest _)
